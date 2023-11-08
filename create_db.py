@@ -8,8 +8,8 @@ cursor.execute(
     """
     CREATE TABLE IF NOT EXISTS school (
     id INTEGER PRIMARY KEY,
-    ope8_id INTEGER NOT NULL UNIQUE,
-    name TEXT NOT NULL UNIQUE
+    name TEXT NOT NULL UNIQUE,
+    url TEXT NOT NULL
     )
     """
 )
@@ -24,8 +24,6 @@ cursor.execute(
     state TEXT NOT NULL,
     region TEXT NOT NULL,
     locale TEXT,
-    latitude REAL,
-    longitude REAL,
     FOREIGN KEY (school_id) REFERENCES school (id)
     )
     """
