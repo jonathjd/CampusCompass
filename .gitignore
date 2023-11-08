@@ -138,3 +138,6 @@ config.py
 
 # sqlite database
 college.db
+
+# vs code settings
+.vscode/
