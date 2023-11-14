@@ -1,6 +1,8 @@
 # Campus Compass Database Schema
 
 [![GitHub version](https://badge.fury.io/gh/CampusCompass%2FCampusCompass.svg)](https://badge.fury.io/gh/CampusCompass%2FCampusCompass)
+[![GitHub license](https://img.shields.io/github/license/CampusCompass/CampusCompass)](https://github.com/CampusCompass/CampusCompass/blob/main/LICENSE)
+[![GitHub downloads](https://img.shields.io/github/downloads/CampusCompass/CampusCompass/total.svg)](https://github.com/CampusCompass/CampusCompass/releases)
 
 ## Overview
 
