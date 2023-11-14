@@ -1,5 +1,7 @@
 # Campus Compass Database Schema
 
+[![GitHub version](https://badge.fury.io/gh/CampusCompass%2FCampusCompass.svg)](https://badge.fury.io/gh/CampusCompass%2FCampusCompass)
+
 ## Overview
 
 This document outlines the database schema for the Campus Compass project. The schema defines the structure of the database used to store information related to educational institutions, including their names, locations, financial data, and control status. This schema is designed to help organize and manage data efficiently for the project.
