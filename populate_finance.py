@@ -24,9 +24,9 @@ for row in rows:
     location_dict[school] = row["id"]
 
 
-def get_loc_data(page_num: int) -> dict:
+def get_finance_data(page_num: int) -> dict:
     base_url = "https://api.data.gov/ed/collegescorecard/v1/schools.json?"
-    fields = "school.name,latest.school.operating,school.zip,school.city,school.state,latest.school.region_id,school.locale"
+    fields = "school.name,latest.school.operating,latest.cost.attendance.academic_year,latest.cost.tuition.in_state,latest.cost.tuition.out_of_state"
 
     api_request = f"{base_url}fields={fields}&api_key={config.API_KEY}&page={page_num}&_per_page=100"
 
@@ -41,7 +41,7 @@ def populate_db() -> None:
     make_call = True
 
     while make_call:
-        data = get_loc_data(page_num)
+        data = get_finance_data(page_num)
 
         # Check if the API response contains results.
         if data["results"] != []:
@@ -53,14 +53,12 @@ def populate_db() -> None:
 
                         school_id = location_dict[school["school.name"]]
                         cursor.execute(
-                            "INSERT INTO location (school_id, zipcode, city, state, region, locale) VALUES (?, ?, ?, ?, ?, ?)",
+                            "INSERT INTO finance (school_id, cost4a, in_state_tuition, out_state_tuition) VALUES (?, ?, ?, ?)",
                             (
                                 school_id,
-                                school["school.zip"],
-                                school["school.city"],
-                                school["school.state"],
-                                school["latest.school.region_id"],
-                                school["school.locale"],
+                                school["latest.cost.attendance.academic_year"],
+                                school["latest.cost.tuition.in_state"],
+                                school["latest.cost.tuition.out_of_state"],
                             ),
                         )
                 except Exception as e:
